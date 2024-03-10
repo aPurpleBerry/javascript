@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="http://www.itcast.cn">
+    <input type="submit" value="免费注册"> 
+    <!-- 这是一个提交按钮，点击之后会有一个提交动作，跳转到网址 
+    但有时候信息有误不可以提交-->
+  </form>
+
+  <a href="http://www.baidu.com">百度一下</a>
+</body>
+<script>
+  const form = document.querySelector('form')
+  form.addEventListener('submit',function(e) {
+    e.preventDefault()
+    //阻止默认行为（提交）
+  })
+
+  const a = document.querySelector('a')
+  a.addEventListener('click',function(e) {
+    e.preventDefault()
+  })
+</script>
+</html>

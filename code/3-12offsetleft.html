@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  div {
+    width: 200px;
+    height: 200px;
+    background-color: pink;
+    margin: 100px;
+    position: relative;
+  }
+  p {
+    width: 100px;
+    height: 100px;
+    background-color: purple;
+    margin: 50px;
+  }
+</style>
+<body>
+  <div>
+    <p></p>
+  </div>
+</body>
+<script>
+  const div = document.querySelector('div')
+  const p = document.querySelector('p')
+  console.log(div.offsetLeft);
+  // 这里是108，为什么是108？因为body有一个8像素的外边距
+  console.log(p.offsetLeft);
+</script>
+</html>

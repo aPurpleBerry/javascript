@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  // function outer() {
+  //   let a = 10
+  //   function inner() {
+  //     console.log(a);
+  //   }
+  //   inner()
+  // }
+  // outer() 
+
+
+  // 常见的闭包形式：外部可以访问使用 函数内部的变量（正常情况无法访问）
+  function outer() {
+    let a = 10
+    function fn() {
+      console.log(a);
+    }
+    return fn 
+    // 返回一个函数 
+    // 不要写小括号，小括号是调用
+  }
+
+  // outer()
+  // outer一调用 会返回一个函数
+  //  等价于fn
+  //  outer() === fn === function fn() {}
+
+  const fun = outer()
+  fun() // 调用函数
+
+
+  // 闭包作用：数据私有
+  function count() {
+    let i = 0
+    function fn() {
+      i++
+      console.log(i);
+    }
+    return fn
+  }
+
+  const c = count()
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  const arr = [
+    {
+      name: '张三',
+      salary: 10000
+    }, 
+    {
+      name: '李四',
+      salary: 10000
+    }, 
+    {
+      name: '王五',
+      salary: 10000
+    }
+  ]
+
+  const total = arr.reduce((prev, current) => {
+    // return prev.salary + current.salary 这样是错的
+    return prev + current.salary
+  },0)
+  //必须有初始值
+
+  // 上一次值          当前值             返回值
+  //  0(初始值)    10000(数组第1个)      10000
+  // 10000         10000(数组第2个)      20000
+  // 20000         10000(数组第3个)      30000
+
+  const totalNew = arr.reduce((prev, current) => prev + current.salary*1.3, 0)
+</script>
+</html>

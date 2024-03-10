@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  //【1】
+  console.log(this); // window
+
+  //【2】普通函数
+  function fn() {
+    console.log(this);
+  }
+  fn() 
+  //会打印window.因为函数调用的时候,完整的写法是 window.fn()
+
+  //【3】对象
+  const obj = {
+    name: 'andy',
+    sayHi: function() {
+      console.log(this);
+    }
+  }
+  obj.sayHi() // obj 因为是obj调用的这个sayHi函数
+
+  //以前this的指向: 谁调用的这个函数，this就指向谁
+
+  // ---------------但是箭头函数不一样--------------
+  const fn = () => {
+    console.log(this); // window
+    // 在这个局部作用域中没有this
+    // 所以会往父级作用于查看，就是window
+  }
+
+  const myObj = {
+    name: 'hh',
+    sayHi: () => {
+      console.log(this);
+      // 这个里面没有this,所以会往上一层作用域找
+      // 对象的大括号并不是作用域
+      // window.myObj 是window下的 
+      // 所以是window
+    }
+  }
+  myObj.sayHi()
+
+
+  const myObj2 = {
+    name: 'hh',
+    sayHi: function()  {
+      let i = 10
+      const count = () => {
+        console.log(this); // this指向的是 myObj2
+      }
+      count()
+    }
+  }
+  myObj2.sayHi() 
+
+</script>
+</html>

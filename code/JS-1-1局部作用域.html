@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+  const num = 10
+  function fn() {
+    console.log(num);
+  }
+
+// let 声明的变量不能被访问
+for(let i = 1; i <= 3; i++) {
+  console.log(i);
+}
+console.log(i);// 不能被访问
+
+// var 声明的变量 可以 被访问
+for(let j = 1; j <= 3; j++) {
+  console.log(j);
+}
+console.log(j);// 可以被访问
+</script>
+</html>

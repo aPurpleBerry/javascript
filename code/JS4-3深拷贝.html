@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  const obj = {
+    uname: 'pink',
+    age: 18,
+    hobby: ['乒乓球','足球']
+  }
+  const newO = {}
+  // 拷贝函数
+  function deepCopy(newObj, oldObj) {
+    for(let k in oldObj) {
+      console.log(k);
+      console.log(oldObj[k]);
+      // 处理数组的问题
+      if(oldObj[k] instanceof Array) {
+        newObj[k] = [] // 空数组接收
+        deepCopy(newObj[k],oldObj[k])
+      } else if (oldObj[k] instanceof Object){
+        newObj[k] = {} // 空数组接收
+        deepCopy(newObj[k],oldObj[k])
+      } else {
+        // K是属性名， 值是oldObj[K]
+        newObj[k] = oldObj[k]
+      }
+      // 这里一定先写 Array，后写Object 
+      // console.log(Array instanceOf Object) // true
+    }
+  }
+  deepCopy(newO,obj)
+  //console.log(newO);
+  newO.age = 33
+  newO.hobby[0] = '篮球'
+  //console.log(obj);
+</script>
+</html>

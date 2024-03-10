@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  const arr = [1, 5, 8]
+  
+  // 1、没有初始值
+  const total = arr.reduce(function(prev, current) {
+    return prev + current // 14
+  })
+
+  // 2、有初始值
+  const total2 = arr.reduce(function(prev, current) {
+    return prev + current // 24
+  },10)
+
+  const total3 = arr.reduce((prev,current) => prev+current, 10)
+</script>
+</html>
