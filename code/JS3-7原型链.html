@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  // function Object() {
+
+  // }
+
+  function Person() {
+
+  }
+  const ldh = new Person()
+
+  // 构造函数Person 有prototype(原型)
+  console.log(Person.prototype); 
+  console.log(Person.prototype.__proto__ === Object.prototype);  // true
+
+  // Person是我们定义的构造函数，构造函数Person 有prototype(原型)
+  // 【Person.prototype】是一个对象，每个对象里面都有一个__PROTO__，
+  // Person.prototype.__PROTO__指向 "构造出【Person.prototype】这个对象的构造函数 的prototype "  
+  // 有一个最大构造函数 Objct，这个构造函数构造出 Person.prototype 
+  // 因此，Person.prototype.__PROTO__指向Object 的prototype
+
+  const zxy = new Person()
+  console.log(zxy instanceof Person); // zxy 属于 Person 吗 : true
+  console.log(zxy instanceof Object); // zxy 属于 Object 吗 : true
+  console.log(zxy instanceof Array);  // zxy 属于 Array 吗 :  false
+  console.log(Array instanceof Object); // true
+</script>
+</html> 

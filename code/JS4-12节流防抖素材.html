@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .box {
+      width: 500px;
+      height: 500px;
+      background-color: #ccc;
+      color: #fff;
+      text-align: center;
+      font-size: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+
+</body>
+<script src="./lodash.min.js"></script>
+<script>
+  const box = document.querySelector('.box')
+  let i = 1
+  function mouseMove() {
+    box.innerHTML = i++
+    // 如果这里存在大量消耗性能的代码,比如dom操作,比如数据处理
+    // 可能造成卡顿
+  }
+  //box.addEventListener('mousemove',mouseMove)
+  // 但是因为mousemove这个事件是移动了1px就会改变
+  // 如果飞快地移动鼠标,数字更改的就会很快
+
+  box.addEventListener('mousemove',_.debounce(mouseMove,500))
+   
+
+  // 手写防抖函数
+  function mydebounce(fn, t){
+    let timer
+    return function() {
+      console.log(timer);
+      if(timer) clearInterval(timer)
+      timer = setTimeout(function(){
+        fn()
+      }, t)
+    }
+  }
+  box.addEventListener('mousemove', mydebounce(mouseMove,3000))
+  // 分析我们自己的mydebounce为什么要返回函数
+  // mydebounce(mouseMove,500)是在调用函数,
+  // 函数返回值是 一个函数
+  // mydebounce(mouseMove,500) = function() { }
+  // 所以就相当于,鼠标一滑动就要执行这个匿名函数
+</script>
+</html>
