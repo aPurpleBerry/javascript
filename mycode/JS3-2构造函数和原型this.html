@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  let that
+  function Star(uname) {
+    that = this
+    this.uname = uname
+  }
+  let that2
+  Star.prototype.sing = function() {
+    that2 = this
+    console.log('唱歌');
+  }
+  // 构造函数中的this指向实例化对象
+  const ldh = new Star('刘德华')
+  console.log(that === ldh) // true
+  
+  // 原型对象中的this指向实例化对象
+  ldh.sing()
+  console.log(that2 === ldh) // true
+
+</script>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  const obj = {
+    uname: 'pink',
+    age: 18
+  }
+  // obj.uname
+  // obj.age
+
+  // 解构
+  const {uname, age} = obj
+  /*
+    const {uname, age} = {
+      uname: 'pink',
+      age: 18
+    }
+    等价于 const uname = obj.uname
+          const  age = obj.age
+  */
+
+  //数组对象解构
+  const pig = [
+    {
+      uname: '佩奇',
+      age: 18
+    }
+  ]
+  const [{uname: pigname,age:pigage}] = pig
+
+  //多级对象解构
+  const pig2 = {
+    name: '佩奇',
+    family: {
+      mother: '猪妈妈',
+      father: '猪爸爸',
+      sister: '乔治'
+    },
+    age: 6
+  }
+
+  const {name, family:{mother, father, sister}} = pig2
+  //一定要加一个family，因为pig2里面可能不仅仅只有一个子对象
+
+  const pig3 = [
+    {
+      name: '佩奇',
+      family: {
+        mother: '猪妈妈',
+        father: '猪爸爸',
+        sister: '乔治'
+      },
+      age: 6
+    }
+  ]
+  //就是下面这样，只是变量名冲突
+  // const [{name,family:{mother, father, sister}}] = pig3
+</script>
+</html>

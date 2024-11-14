@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  function Star() {
+  }
+  const ldh = new Star()
+  console.log(Star.prototype.constructor === Star); // true
+
+
+  function Star2() {
+  }
+
+  // Star2.prototype.sing = function() {
+  //   console.log('唱歌');
+  // }
+  // Star2.prototype.dance = function() {
+  //   console.log('跳舞');
+  // }
+  console.log(Star2.prototype); // {constructor: ƒ}
+  console.log(Star2.prototype.constructor); //ƒ Star2() {}
+  Star2.prototype = {
+    constructor: Star,
+    sing: function() {
+      console.log('唱歌');
+    },
+    dance: function() {
+      console.log('跳舞');
+    }
+  }
+  console.log(Star2.prototype); //{sing: ƒ, dance: ƒ}
+  console.log(Star2.prototype.constructor); // ƒ Object() { [native code] }
+  // 这样子的prototype是赋值，不是追加
+  // 所以解决方法是 加一条constructor: Star 重新指回去
+</script>
+</html>
+
+
+

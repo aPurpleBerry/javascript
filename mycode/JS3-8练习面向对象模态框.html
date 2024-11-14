@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <div class="modal">
+    <div class="header">温馨提示</div>
+    <div class="body">您没有删除权限操作</div>
+  </div> -->
+</body>
+<style>
+  .modal {
+      width: 300px;
+      min-height: 100px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+      position: fixed;
+      z-index: 999;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      background-color: #fff;
+    }
+
+    .modal .header {
+      line-height: 40px;
+      padding: 0 10px;
+      position: relative;
+      font-size: 20px;
+    }
+
+    .modal .header i {
+      font-style: normal;
+      color: #999;
+      position: absolute;
+      right: 15px;
+      top: -2px;
+      cursor: pointer;
+    }
+
+    .modal .body {
+      text-align: center;
+      padding: 10px;
+    }
+</style>
+<script>
+  
+  /*
+    模态框盒子
+      <div class="modal">
+        <div class="header">温馨提示</div>
+        <div class="body">您没有删除权限操作</div>
+      </div>
+  */
+  function Modal() {
+    this.modalBox = document.createElement('div')
+    this.modalBox.className = 'modal'
+    this.modalBox.innerHTML = `
+      <div class="header">温馨提示</div>
+      <div class="body">您没有删除权限操作</div>
+    `
+    console.log(this.modalBox);
+  }
+  new Modal()
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .box {
+      width: 500px;
+      height: 500px;
+      background-color: #ccc;
+      color: #fff;
+      text-align: center;
+      font-size: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+
+</body>
+<script src="./lodash.min.js"></script>
+<script>
+  const box = document.querySelector('.box')
+  let i = 1
+  function mouseMove() {
+    box.innerHTML = i++
+    // 如果这里存在大量消耗性能的代码,比如dom操作,比如数据处理
+    // 可能造成卡顿
+  }
+
+  //box.addEventListener('mouseover', _.throttle(mouseMove, 3000))
+  
+  
+
+  function throttle(fn, t){
+    let timer = null
+    return function() {
+      if(!timer) {
+        timer = setTimeout(function(){
+          fn()
+          // 清空定时器
+          timer = null // 不用clearTimeout
+          // 在setTimeout中无法清空定时器 
+          // 如果是clearTimeout(timer)
+          // 打印timer的时候 为1
+        }, t)
+      }
+    }
+  }
+  box.addEventListener('mouseover', throttle(mouseMove, 3000))
+
+</script>
+</html>

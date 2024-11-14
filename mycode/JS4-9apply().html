@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  function fn() {
+    console.log(this);
+  }
+  const obj = {
+    uname: 'pink'
+  }
+  fn() // window
+  fn.apply() // window
+  fn.apply(obj) // obj
+
+  // ============讲解参数===============
+  function fn2(x,y){
+    console.log(this);
+    console.log(x+y);
+  }
+  fn.apply(obj, [1,2])
+  // 返回值 ：apply本身就是在调用函数，所以返回值就是函数的返回值
+
+  // ====使用场景:求数组最大值(对比展开运算符,他是求数字们的最大值)===
+  // Math.max()是在调用函数
+  const max = Math.max(1,2,3)
+  // 所以可以通过apply调用 Math.max函数
+  const max2 = Math.max.apply(null, [1,2,3])
+  console.log(max2); // 3
+
+  const arr = [100, 44, 77]
+  const max3 = Math.max.apply(null, arr)
+  console.log(max3); // 100
+
+</script>
+</html>

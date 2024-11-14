@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  // const obj = {
+  //   uname: 'pink',
+  //   age: 18
+  // }
+  
+  // // 展开运算符
+  // const o = {...obj}
+  // o.age = 20
+  // console.log(o); // {uname: 'pink', age: 20}
+  // console.log(obj); // {uname: 'pink', age: 18}
+
+  // // assign方法
+  // const o2 = {}
+  // Object.assign(o2, obj)
+  // o2.age = 22
+
+  // console.log(o2); // {uname: 'pink', age: 22}
+  // console.log(obj); // {uname: 'pink', age: 18}
+
+  const obj = {
+    uname: 'pink',
+    age: 18,
+    family : {
+      baby: '小pink'
+    }
+  }
+
+  const o = {}
+  Object.assign(o, obj)
+  o.age = 20
+  o.family.baby = '老pink'
+  console.log(o)
+  console.log(obj);
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  div {
+    width: 300px;
+    height: 400px;
+    background-color: pink;
+  }
+</style>
+<body>
+  <div></div>
+</body>
+<script>
+  const div = document.querySelector('div')
+  div.addEventListener('touchstart', function() {
+    console.log('开始触摸');
+  })
+  div.addEventListener('touchend', function() {
+    console.log('触摸结束');
+  })
+  div.addEventListener('touchmove', function() {
+    console.log('一直触摸');
+  })
+</script>
+</html>

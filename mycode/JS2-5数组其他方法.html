@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  
+  /*
+  参数
+  find(callbackFn)
+  find(callbackFn, thisArg)
+
+  返回值
+  数组中第一个满足所提供测试函数的[元素]的值，否则返回 undefined。
+  */
+  const arr = ['red', 'blue', 'green']
+  const re = arr.find(function(item) {
+    return item === 'blue'
+  })
+  console.log(re); //blue
+
+  // 实际场景
+  // 需求：只取小米 不取华为。分析：要找小米这个【对象】，并且返回
+  const arr2 = [
+    {
+      name: '小米',
+      price: 1999
+    },
+    {
+      name: '华为',
+      price: 3999
+    }
+  ]
+
+  const re2 = arr2.find(function(item) {
+    // item是数组中的每一个元素  也就是对象
+    // 返回的是数组元素 也就是对象
+    return item.name === '小米'
+  })
+  console.log(re2); // {name: '小米', price: 1999}
+
+
+  // every 
+  const arr4 = [10, 20, 30]
+  const flag = arr4.every(item => item >= 10)
+  console.log(flag);
+</script>
+</html>
